@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body onload="brython()">
+    <nav>
+      <h1 id="data-structures-with-python">Data Structures with Python</h1>
+    </nav>
+    <ul>
+      <li>
+        <a href="#dictionaries-maps-and-hash-tables"
+          >Dictionaries, Maps, and Hash Tables</a
+        >
+        <ul>
+          <li>
+            <a href="#1-dict-your-go-to-dictionary"
+              >dict: Your Go-to Dictionary</a
+            >
+          </li>
+          <li>
+            <a
+              href="#2-collectionsordereddict-remember-the-insertion-order-of-keys"
+              >collections.OrderedDict: Remember the Insertion Order of Keys</a
+            >
+          </li>
+          <li>
+            <a
+              href="#3-collectionsdefaultdict-return-default-values-for-missing-keys"
+              >collections.defaultdict: Return Default Values for Missing
+              Keys</a
+            >
+          </li>
+          <li>
+            <a
+              href="#4-collectionschainmap-search-multiple-dictionaries-as-a-single-mapping"
+              >collections.ChainMap: Search Multiple Dictionaries as a Single
+              Mapping</a
+            >
+          </li>
+          <li>
+            <a
+              href="#5-typesmappingproxytype-a-wrapper-for-making-read-only-dictionaries"
+              >types.MappingProxyType: A Wrapper for Making Read-Only
+              Dictionaries</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#array-data-structures">Array Data Structures</a>
+        <ul>
+          <li>
+            <a href="#list-mutable-dynamic-arrays"
+              >list: Mutable Dynamic Arrays</a
+            >
+          </li>
+          <li>
+            <a href="#tuple-immutable-containers"
+              >tuple: Immutable Containers</a
+            >
+          </li>
+          <li>
+            <a href="#arrayarray-basic-typed-arrays"
+              >array.array: Basic Typed Arrays</a
+            >
+          </li>
+          <li>
+            <a href="#str-immutable-arrays-of-unicode-characters"
+              >str: Immutable Arrays of Unicode Characters</a
+            >
+          </li>
+          <li>
+            <a href="#bytes-immutable-arrays-of-single-bytes"
+              >bytes: Immutable Arrays of Single Bytes</a
+            >
+          </li>
+          <li>
+            <a href="#bytearray-mutable-arrays-of-single-bytes"
+              >bytearray: Mutable Arrays of Single Bytes</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#records-structs-and-data-transfer-objects"
+          >Records, Structs, and Data Transfer Objects</a
+        >
+        <ul>
+          <li>
+            <a href="#simple-data-objects-dict"
+              >Simple Data Objects (<code>dict</code>)</a
+            >
+          </li>
+          <li>
+            <a href="#immutable-groups-of-objects-tuple"
+              >Immutable Groups of Objects (<code>tuple</code>)</a
+            >
+          </li>
+          <li>
+            <a href="#write-a-custom-class-more-work-more-control"
+              >Custom Class</a
+            >
+          </li>
+          <li>
+            <a href="#data-classes-dataclassesdataclass"
+              >Data Classes (<code>dataclasses.dataclass</code>)</a
+            >
+          </li>
+          <li>
+            <a href="#convenient-data-objects-collectionsnamedtuple"
+              >Convenient Data Objects (<code>collections.namedtuple</code>)</a
+            >
+          </li>
+          <li>
+            <a href="#improved-namedtuples-typingnamedtuple"
+              >Improved Namedtuples (<code>typing.NamedTuple</code>)</a
+            >
+          </li>
+          <li>
+            <a href="#serialized-c-structs-structstruct"
+              >Serialized C Structs (<code>struct.Struct</code>)</a
+            >
+          </li>
+          <li>
+            <a href="#fancy-attribute-access-typessimplenamespace"
+              >Fancy Attribute Access (<code>types.SimpleNamespace</code>)</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#set-your-go-to-set">Sets and Multisets</a>
+        <ul>
+          <li><a href="#set-your-go-to-set">Set: Your Go-to Set</a></li>
+          <li>
+            <a href="#frozenset-immutable-sets">Frozenset: Immutable Sets</a>
+          </li>
+          <li>
+            <a href="#collectionscounter-multisets"
+              >Collections.Counter: Multisets</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#stacks-lifos">Stacks-(LIFO)</a>
+        <ul>
+          <li>
+            <a href="#list-simple-built-in-stacks"
+              >List: Simple, Built-in Stacks</a
+            >
+          </li>
+          <li>
+            <a href="#collectionsdeque-fast-and-robust-stacks"
+              >Collections.deque: Fast and Robust Stacks</a
+            >
+          </li>
+          <li>
+            <a href="#queuelifoqueue-locking-semantics-for-parallel-computing"
+              >Queue.LifoQueue: Locking Semantics for Parallel Computing</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#queues-fifos">Queue-(FIFO)</a>
+        <ul>
+          <li>
+            <a href="#list-terribly-sloooow-queues"
+              >List: Terribly Sloooow Queues</a
+            >
+          </li>
+          <li>
+            <a href="#collectionsdeque-fast-and-robust-queues"
+              >Collections.deque: Fast and Robust Queues</a
+            >
+          </li>
+          <li>
+            <a href="#queuequeue-locking-semantics-for-parallel-computing"
+              >Queue.Queue: Locking Semantics for Parallel Computing</a
+            >
+          </li>
+          <li>
+            <a href="#multiprocessingqueue-shared-job-queues"
+              >Multiprocessing.Queue: Shared Job Queues</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#priority-queues">Priority Queues</a>
+        <ul>
+          <li>
+            <a href="#list-manually-sorted-queues"
+              >List: Manually Sorted Queues</a
+            >
+          </li>
+          <li>
+            <a href="#heapq-list-based-binary-heaps"
+              >Heapq: List-Based Binary Heaps</a
+            >
+          </li>
+          <li>
+            <a href="#queuepriorityqueue-beautiful-priority-queues"
+              >Queue.PriorityQueue: Beautiful Priority Queues</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#conclusion-python-data-structures"
+          >Conclusion: Python Data Structures</a
+        >
+      </li>
+    </ul>
+    <h2 id="dictionaries-maps-and-hash-tables">
+      Dictionaries, Maps, and Hash Tables
+    </h2>
+    <p>
+      Dictionaries in Python are a fundamental data structure that stores an
+      arbitrary number of objects, each identified by a <code>unique key</code>.
+      They are also known by various other names, such as <code>maps</code>,
+      <code>hashmaps</code>, <code>lookup tables</code>, or
+      <code>associative arrays</code>.
+    </p>
+    <h2 id="key-characteristics">Key Characteristics</h2>
+    <ul>
+      <li>
+        <strong>Efficient Lookups</strong>: Allows for the quick retrieval of
+        information associated with a given key.
+      </li>
+      <li>
+        <strong>Insertion and Deletion</strong>: Supports the efficient
+        insertion and deletion of objects.
+      </li>
+      <li>
+        <strong>Unique Keys</strong>: Each key in a dictionary is unique,
+        ensuring that every stored object can be quickly and uniquely
+        identified.
+      </li>
+    </ul>
+    <pre><code class="lang-python">my_dict = {
+    <span class="hljs-string">'name'</span>: <span class="hljs-string">'John'</span>,
+    <span class="hljs-string">'age'</span>: <span class="hljs-number">25</span>,
+    <span class="hljs-string">'city'</span>: <span class="hljs-string">'New York'</span>
+}
+</code></pre>
+    <h2 id="1-dict-your-go-to-dictionary">
+      1. <code>dict</code>: Your Go-to Dictionary
+    </h2>
+    <p>
+      <strong>Description:</strong><br />
+      Standard dictionary in Python, which stores key-value pairs.
+    </p>
+    <p>
+      <strong>Usage:</strong><br />
+      Efficient for fast lookups, inserts, updates, and deletions.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code class="lang-python">my_dict = {<span class="hljs-string">'apple'</span>: 1, <span class="hljs-string">'banana'</span>: 2}
+<span class="hljs-built_in">print</span>(my_dict[<span class="hljs-string">'apple'</span>])  <span class="hljs-comment"># Output: 1</span>
+</code></pre>
+    <h2 id="2-collections-ordereddict-remember-the-insertion-order-of-keys">
+      2. collections.OrderedDict: Remember the Insertion Order of Keys
+    </h2>
+    <p>
+      <strong>Description:</strong> A dictionary subclass that maintains the
+      order in which keys were first inserted.
+    </p>
+    <p><strong>Usage:</strong> Useful when the order of items matters.</p>
+    <p><strong>Example:</strong></p>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+
+od = OrderedDict()
+od[<span class="hljs-string">'apple'</span>] = <span class="hljs-number">1</span>
+od[<span class="hljs-string">'banana'</span>] = <span class="hljs-number">2</span>
+<span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> od:
+    <span class="hljs-built_in">print</span>(key)  <span class="hljs-comment"># Output: apple, banana</span>
+</code></pre>
+    <h2 id="3-collections-defaultdict-return-default-values-for-missing-keys">
+      3. collections.defaultdict: Return Default Values for Missing Keys
+    </h2>
+    <p>
+      <strong>Description:</strong> A dictionary subclass that provides default
+      values for missing keys.
+    </p>
+    <p>
+      <strong>Usage:</strong> Useful for counting, grouping, or accumulating
+      values.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+
+dd = defaultdict(<span class="hljs-keyword">int</span>)
+dd[<span class="hljs-string">'apple'</span>] += <span class="hljs-number">1</span>
+<span class="hljs-keyword">print</span>(dd[<span class="hljs-string">'apple'</span>])  # Output: <span class="hljs-number">1</span>
+<span class="hljs-keyword">print</span>(dd[<span class="hljs-string">'banana'</span>])  # Output: <span class="hljs-number">0</span> (<span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> value)
+</code></pre>
+    <h2
+      id="4-collections-chainmap-search-multiple-dictionaries-as-a-single-mapping"
+    >
+      4. collections.ChainMap: Search Multiple Dictionaries as a Single Mapping
+    </h2>
+    <p>
+      <strong>Description:</strong> Combines multiple dictionaries into a single
+      view.
+    </p>
+    <p>
+      <strong>Usage:</strong> Useful for managing nested scopes or combining
+      configurations.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> ChainMap
+
+dict1 = {<span class="hljs-string">'apple'</span>: <span class="hljs-number">1</span>}
+dict2 = {<span class="hljs-string">'banana'</span>: <span class="hljs-number">2</span>}
+chain = ChainMap(dict1, dict2)
+<span class="hljs-built_in">print</span>(chain[<span class="hljs-string">'apple'</span>])  <span class="hljs-comment"># Output: 1</span>
+<span class="hljs-built_in">print</span>(chain[<span class="hljs-string">'banana'</span>])  <span class="hljs-comment"># Output: 2</span>
+</code></pre>
+    <h2
+      id="5-types-mappingproxytype-a-wrapper-for-making-read-only-dictionaries"
+    >
+      5. types.MappingProxyType: A Wrapper for Making Read-Only Dictionaries
+    </h2>
+    <p>
+      <strong><em>Description:</em></strong> Provides a read-only view of a
+      dictionary.
+    </p>
+    <p><strong>Usage:</strong> Useful for creating immutable dictionaries.</p>
+    <p><strong>Example:</strong></p>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> types <span class="hljs-keyword">import</span> MappingProxyType
+
+original_dict = {<span class="hljs-string">'apple'</span>: <span class="hljs-number">1</span>}
+proxy_dict = MappingProxyType(original_dict)
+print(proxy_dict[<span class="hljs-string">'apple'</span>])  # Output: <span class="hljs-number">1</span>
+# proxy_dict[<span class="hljs-string">'banana'</span>] = <span class="hljs-number">2</span>  # Raises TypeError
+</code></pre>
+    <h1 id="array-data-structures-in-python">
+      Array Data Structures in Python
+    </h1>
+    <p>
+      An array is a fundamental data structure available in most programming
+      languages, and it has a wide range of uses across different algorithms.
+    </p>
+    <p>
+      In this section, you’ll take a look at array implementations in Python
+      that use only core language features or functionality that’s included in
+      the Python standard library. You’ll see the strengths and weaknesses of
+      each approach so you can decide which implementation is right for your use
+      case.
+    </p>
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Use list for general-purpose ordered collections.</li>
+      <li>Use tuple when an immutable ordered collection is needed.</li>
+      <li>Use array.array for memory-efficient storage of homogeneous data.</li>
+      <li>Use str for textual data.</li>
+      <li>Use bytes and bytearray for binary data.</li>
+    </ul>
+    <h2 id="array-data-structures">Array Data Structures</h2>
+    <h2 id="list-mutable-dynamic-arrays">list: Mutable Dynamic Arrays</h2>
+    <ul>
+      <li>
+        <strong>Characteristics</strong>:
+        <ul>
+          <li>Ordered collection of elements.</li>
+          <li>Allows duplicate elements.</li>
+          <li>Elements can be of different data types.</li>
+          <li>Supports dynamic resizing.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>Usage</strong>:</p>
+        <pre><code class="lang-python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">"hello"</span>]
+</code></pre>
+      </li>
+      <li>
+        <p>
+          <strong>Common Methods:</strong> <code>append()</code>,
+          <code>extend()</code>, <code>insert()</code>,
+          <code>remove()</code>,<code>pop()</code>, <code>sort()</code>,
+          <code>reverse()</code>
+        </p>
+      </li>
+    </ul>
+    <h2 id="tuple-immutable-containers">tuple: Immutable Containers</h2>
+    <ul>
+      <li><strong>Characteristics:</strong></li>
+      <ul>
+        <li>Ordered collection of elements.</li>
+        <li>Allows duplicate elements.</li>
+        <li>Elements can be of different data types.</li>
+        <li>Once created, elements cannot be changed (immutable).</li>
+      </ul>
+
+      <li>
+        <p><strong>Usage</strong>:</p>
+        <pre><code class="lang-python">my_tuple = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">"hello"</span>)
+      </code></pre>
+      </li>
+      <li>
+        <strong>Common Methods:</strong> <code>count()</code>,
+        <code>index()</code>
+      </li>
+    </ul>
+    <h2 id="array-array-basic-typed-arrays">array.array: Basic Typed Arrays</h2>
+    <ul>
+      <li><strong>Characteristics:</strong></li>
+      <ul>
+        <li>Ordered collection of elements of the same type.</li>
+        <li>
+          More memory-efficient than lists for large arrays of uniform data
+          types.
+        </li>
+        <li>Requires importing the array module.</li>
+      </ul>
+      <li><strong>Usage:</strong></li>
+
+      <pre><code class="lang-python">from<span class="hljs-built_in"> array </span>import<span class="hljs-built_in"> array
+      </span>my_array = array('i', [1, 2, 3, 4])
+        </code></pre>
+      <li>
+        <strong>Common Methods:</strong>
+        <code>append()</code>,<code>extend()</code>, <code>insert()</code>,
+        <code>remove()</code>,<code>pop()</code>
+      </li>
+    </ul>
+    <h2 id="str-immutable-arrays-of-unicode-characters">
+      str: Immutable Arrays of Unicode Characters
+    </h2>
+    <ul>
+      <li><strong>Characteristics:</strong></li>
+      <ul>
+        <li>Ordered collection of Unicode characters.</li>
+        <li>Immutable, meaning elements cannot be changed after creation.</li>
+      </ul>
+      <li>
+        <p><strong>Usage</strong>:</p>
+        <pre><code class="lang-python"><span class="hljs-attr">my_str</span> = <span class="hljs-string">"hello"</span>
+</code></pre>
+      </li>
+      <li>
+        <strong>Common Methods:</strong> <code>upper()</code>,
+        <code>lower()</code>,<code>find()</code>,<code>replace()</code>,
+        <code>split()</code>,<code>join()</code>
+      </li>
+    </ul>
+    <h2 id="bytes-immutable-arrays-of-single-bytes">
+      bytes: Immutable Arrays of Single Bytes
+    </h2>
+    <ul>
+      <li><strong>Characteristics:</strong></li>
+      <ul>
+        <li>Ordered collection of bytes.</li>
+        <li>Immutable, meaning elements cannot be changed after creation.</li>
+        <li>Used for binary data.</li>
+      </ul>
+      <li>
+        <p><strong>Usage:</strong></p>
+        <pre><code class="lang-python"><span class="hljs-attr">my_bytes</span> = b<span class="hljs-string">'hello'</span>
+</code></pre>
+      </li>
+      <li>
+        <strong>Common Methods:</strong> Similar to str, but adapted for bytes.
+      </li>
+    </ul>
+    <h2 id="bytearray-mutable-arrays-of-single-bytes">
+      bytearray: Mutable Arrays of Single Bytes
+    </h2>
+    <ul>
+      <p><strong>Characteristics:</strong></p>
+      <ul>
+        <li>Ordered collection of bytes.</li>
+        <li>Mutable, meaning elements can be changed after creation.</li>
+        <li>Used for binary data.</li>
+      </ul>
+      <li><strong>Usage:</strong></li>
+      <pre><code class="lang-python"><span class="hljs-attr">my_bytearray</span> = bytearray(b<span class="hljs-string">'hello'</span>)
+</code></pre>
+      <li>
+        <strong>Common Methods:</strong> Similar to bytes, with additional
+        methods for mutability like append(), extend(), insert(), remove(),
+        pop()
+      </li>
+    </ul>
+    <h1 id="records-structs-and-data-transfer-objects">
+      Records, Structs, and Data Transfer Objects
+    </h1>
+    <p>
+      Python offers several data types that you can use to implement records,
+      structs, and data transfer objects. In this section, you’ll get a quick
+      look at each implementation and its unique characteristics. At the end,
+      you’ll find a summary and a decision-making guide that will help you make
+      your own picks.
+    </p>
+    <h2 id="simple-data-objects-dict-">
+      Simple Data Objects (<code>dict</code>)
+    </h2>
+    <p>
+      Dictionaries are mutable and versatile data structures used to store
+      key-value pairs.
+    </p>
+    <pre><code class="lang-python">person = {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"Alice"</span>,
+    <span class="hljs-string">"age"</span>: 30,
+    <span class="hljs-string">"city"</span>: <span class="hljs-string">"New York"</span>
+}
+
+<span class="hljs-built_in">print</span>(person[<span class="hljs-string">"name"</span>])  <span class="hljs-comment"># Output: Alice</span>
+</code></pre>
+    <h2 id="immutable-groups-of-objects-tuple-">
+      Immutable Groups of Objects (<code>tuple</code>)
+    </h2>
+    <p>
+      Tuples are immutable sequences used to store a collection of items. Once
+      created, their contents cannot be changed.
+    </p>
+    <pre><code class="lang-python">coordinates = (10, 20)
+<span class="hljs-built_in">print</span>(coordinates[0])  <span class="hljs-comment"># Output: 10</span>
+</code></pre>
+    <h2 id="write-a-custom-class-more-work-more-control">
+      Write a Custom Class: More Work, More Control
+    </h2>
+    <p>
+      Creating a custom class provides more control over the data structure and
+      behavior, allowing encapsulation and additional methods.
+    </p>
+    <pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, name, age)</span></span>:
+        <span class="hljs-keyword">self</span>.name = name
+        <span class="hljs-keyword">self</span>.age = age
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">introduce</span><span class="hljs-params">(<span class="hljs-keyword">self</span>)</span></span>:
+        <span class="hljs-keyword">return</span> f<span class="hljs-string">"My name is {self.name} and I am {self.age} years old."</span>
+
+person = Person(<span class="hljs-string">"Alice"</span>, <span class="hljs-number">30</span>)
+print(person.introduce())  <span class="hljs-comment"># Output: My name is Alice and I am 30 years old.</span>
+</code></pre>
+    <h2 id="data-classes-dataclasses-dataclass-">
+      Data Classes (<code>dataclasses.dataclass</code>)
+    </h2>
+    <p>
+      Data classes, introduced in Python 3.7, simplify the creation of classes
+      used primarily for storing data. They automatically add special methods
+      like
+      <code>__init__</code>, <code>__repr__</code>, and <code>__eq__</code>.
+    </p>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> dataclasses <span class="hljs-keyword">import</span> dataclass
+
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span>
+    name: str
+    age: int
+
+person = Person(<span class="hljs-string">"Alice"</span>, <span class="hljs-number">30</span>)
+print(person)  <span class="hljs-comment"># Output: Person(name='Alice', age=30)</span>
+</code></pre>
+    <h2 id="convenient-data-objects-collections-namedtuple-">
+      Convenient Data Objects (<code>collections.namedtuple</code>)
+    </h2>
+    <p>
+      Named tuples are a subclass of tuples that allow for named fields,
+      improving code readability.
+    </p>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
+
+Person = namedtuple(<span class="hljs-string">'Person'</span>, [<span class="hljs-string">'name'</span>, <span class="hljs-string">'age'</span>])
+person = Person(name=<span class="hljs-string">"Alice"</span>, age=<span class="hljs-number">30</span>)
+
+<span class="hljs-built_in">print</span>(person.name)  <span class="hljs-comment"># Output: Alice</span>
+</code></pre>
+    <h2 id="improved-namedtuples-typing-namedtuple-">
+      Improved Namedtuples (<code>typing.NamedTuple</code>)
+    </h2>
+    <p>
+      <code>typing.NamedTuple</code> provides a more robust way to define named
+      tuples, allowing for type hints and more control.
+    </p>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> NamedTuple
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><span class="hljs-params">(NamedTuple)</span>:</span>
+    name: str
+    age: int
+
+person = Person(name=<span class="hljs-string">"Alice"</span>, age=<span class="hljs-number">30</span>)
+print(person.age)  <span class="hljs-comment"># Output: 30</span>
+</code></pre>
+    <h2 id="serialized-c-structs-struct-struct-">
+      Serialized C Structs (<code>struct.Struct</code>)
+    </h2>
+    <p>
+      The <code>struct</code> module allows for the conversion between Python
+      values and C structs represented as Python bytes objects.
+    </p>
+    <pre><code class="lang-python"><span class="hljs-keyword">import</span> <span class="hljs-keyword">struct</span>
+
+data = <span class="hljs-keyword">struct</span>.pack(<span class="hljs-string">'i5s'</span>, <span class="hljs-number">42</span>, b<span class="hljs-string">'Alice'</span>)
+<span class="hljs-built_in">print</span>(data)  # Output: b<span class="hljs-string">'*\x00\x00\x00Alice'</span>
+</code></pre>
+    <h2 id="fancy-attribute-access-types-simplenamespace-">
+      Fancy Attribute Access (<code>types.SimpleNamespace</code>)
+    </h2>
+    <p>
+      <code>SimpleNamespace</code> provides a flexible way to create objects
+      that can have arbitrary attributes added to them.
+    </p>
+    <pre><code class="lang-py"><span class="hljs-keyword">from</span> types import SimpleNamespace
+
+person = SimpleNamespace(<span class="hljs-built_in">name</span>=<span class="hljs-string">"Alice"</span>, age=<span class="hljs-number">30</span>)
+print(person.<span class="hljs-built_in">name</span>)  <span class="hljs-comment"># Output: Alice</span>
+</code></pre>
+    <h1 id="sets-and-multisets">Sets and Multisets</h1>
+    <p>
+      A set is an unordered collection of objects that doesn’t allow duplicate
+      elements. Typically, sets are used to quickly test a value for membership
+      in the set, to insert or delete new values from a set, and to compute the
+      union or intersection of two sets.
+    </p>
+    <h2 id="set-your-go-to-set">Set: Your Go-to Set</h2>
+    <p>
+      Sets are unordered collections of unique elements. They are mutable and
+      provide efficient membership testing, union, intersection, and difference
+      operations.
+    </p>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>Unordered collection of unique elements.</li>
+      <li>Mutable: elements can be added or removed.</li>
+      <li>Supports operations like union, intersection, and difference.</li>
+    </ul>
+    <h3 id="example">Example</h3>
+    <pre><code class="lang-python"># Creating a <span class="hljs-keyword">set</span>
+fruits <span class="hljs-comment">= {</span><span class="hljs-comment">"apple"</span><span class="hljs-comment">,</span> <span class="hljs-comment">"banana"</span><span class="hljs-comment">,</span> <span class="hljs-comment">"cherry"</span><span class="hljs-comment">}</span>
+print(fruits)  <span class="hljs-comment"># Output: {</span><span class="hljs-comment">'banana'</span><span class="hljs-comment">,</span> <span class="hljs-comment">'apple'</span><span class="hljs-comment">,</span> <span class="hljs-comment">'cherry'</span><span class="hljs-comment">}</span>
+</code></pre>
+    <h2 id="frozenset-immutable-sets">Frozenset: Immutable Sets</h2>
+    <p>
+      Frozensets are immutable versions of sets. Once created, their elements
+      cannot be modified. This makes frozensets useful as dictionary keys or in
+      other contexts where immutability is required.
+    </p>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>Immutable: elements cannot be changed after creation.</li>
+      <li>Can be used as a dictionary key or stored in other sets.</li>
+    </ul>
+    <h3 id="example">Example</h3>
+    <pre><code class="lang-python"># Creating <span class="hljs-keyword">a</span> frozenset
+immutable_fruits = frozenset({<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"cherry"</span>})
+<span class="hljs-keyword">print</span>(immutable_fruits)  # Outpu<span class="hljs-variable">t:</span> frozenset({<span class="hljs-string">'banana'</span>, <span class="hljs-string">'apple'</span>, <span class="hljs-string">'cherry'</span>})
+
+# Attempting <span class="hljs-keyword">to</span> <span class="hljs-built_in">add</span> <span class="hljs-keyword">an</span> element raises <span class="hljs-keyword">an</span> error
+# immutable_fruits.<span class="hljs-built_in">add</span>(<span class="hljs-string">"orange"</span>)  # AttributeError
+
+# Using frozenset <span class="hljs-keyword">as</span> <span class="hljs-keyword">a</span> dictionary key
+frozen_set_dict = {immutable_fruit<span class="hljs-variable">s:</span> <span class="hljs-string">"fruit set"</span>}
+<span class="hljs-keyword">print</span>(frozen_set_dict)  # Outpu<span class="hljs-variable">t:</span> {frozenset({<span class="hljs-string">'banana'</span>, <span class="hljs-string">'apple'</span>, <span class="hljs-string">'cherry'</span>}): <span class="hljs-string">'fruit set'</span>}
+</code></pre>
+    <h2 id="collections-counter-multisets">Collections.Counter: Multisets</h2>
+    <p>
+      <code>collections.Counter</code> is a specialized dictionary subclass used
+      to count hashable objects. It functions as a multiset, allowing multiple
+      occurrences of elements and providing methods for common multiset
+      operations.
+    </p>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>Subclass of dict designed for counting hashable objects.</li>
+      <li>Allows multiple occurrences of elements.</li>
+      <li>
+        Provides methods for common multiset operations like most common,
+        subtracting, and combining counts.
+      </li>
+    </ul>
+    <h3 id="example">Example</h3>
+    <pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
+
+# Creating a Counter
+fruit_counts = Counter([<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"apple"</span>, <span class="hljs-string">"orange"</span>, <span class="hljs-string">"banana"</span>, <span class="hljs-string">"banana"</span>])
+print(fruit_counts)  # Output: Counter({<span class="hljs-string">'banana'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'apple'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'orange'</span>: <span class="hljs-number">1</span>})
+
+# Accessing counts
+print(fruit_counts[<span class="hljs-string">"banana"</span>])  # Output: <span class="hljs-number">3</span>
+
+# Most common elements
+print(fruit_counts.most_common(<span class="hljs-number">2</span>))  # Output: [(<span class="hljs-string">'banana'</span>, <span class="hljs-number">3</span>), (<span class="hljs-string">'apple'</span>, <span class="hljs-number">2</span>)]
+
+# Subtracting counts
+fruit_counts.subtract([<span class="hljs-string">"banana"</span>, <span class="hljs-string">"apple"</span>])
+print(fruit_counts)  # Output: Counter({<span class="hljs-string">'banana'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'apple'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'orange'</span>: <span class="hljs-number">1</span>})
+</code></pre>
+    <h1 id="stacks-lifos-">Stacks (LIFOs)</h1>
+    <p>
+      A stack is a collection of objects that supports fast Last-In/First-Out
+      (LIFO) semantics for inserts and deletes. Unlike lists or arrays, stacks
+      typically don’t allow for random access to the objects they contain. The
+      insert and delete operations are also often called push and pop. Here is
+      an overview of stack implementations in Python, focusing on lists,
+      <code>collections.deque</code>, and <code>queue.LifoQueue</code>, along
+      with their characteristics and examples.
+    </p>
+    <h2 id="list-simple-built-in-stacks">List: Simple, Built-in Stacks</h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        Lists are dynamic arrays and can be used as stacks using
+        <code>append()</code> and <code>pop()</code>.
+      </li>
+      <li>Simple to implement and straightforward to use.</li>
+    </ul>
+    <h3 id="example">Example</h3>
+    <pre><code class="lang-python"># Creating a <span class="hljs-keyword">stack</span> using a <span class="hljs-keyword">list</span>
+<span class="hljs-keyword">stack</span> = []
+
+# Pushing elements onto the <span class="hljs-keyword">stack</span>
+<span class="hljs-keyword">stack</span>.<span class="hljs-keyword">append</span>(1)
+<span class="hljs-keyword">stack</span>.<span class="hljs-keyword">append</span>(2)
+<span class="hljs-keyword">stack</span>.<span class="hljs-keyword">append</span>(3)
+
+<span class="hljs-keyword">print</span>(<span class="hljs-keyword">stack</span>)  # Output: [1, 2, 3]
+
+# Popping <span class="hljs-keyword">an</span> element from the <span class="hljs-keyword">stack</span>
+top = <span class="hljs-keyword">stack</span>.pop()
+<span class="hljs-keyword">print</span>(top)    # Output: 3
+<span class="hljs-keyword">print</span>(<span class="hljs-keyword">stack</span>)  # Output: [1, 2]
+</code></pre>
+    <h2 id="collections-deque-fast-and-robust-stacks">
+      Collections.deque: Fast and Robust Stacks
+    </h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        <code>deque</code> (double-ended queue) is part of the
+        <code>collections</code> module.
+      </li>
+      <li>Provides O(1) time complexity for append and pop operations.</li>
+      <li>
+        Suitable for scenarios requiring fast stack operations and can also be
+        used as a queue.
+      </li>
+    </ul>
+    <pre><code class="lang-html">
+from collections import deque
+
+s = deque()
+s.append("eat")
+s.append("sleep")
+s.append("code")
+print(s) # deque(['eat', 'sleep', 'code'])
+
+s.pop() #'code'
+s.pop() #'sleep'
+s.pop() #'eat'
+s.pop() 
+
+# Output:
+
+# Traceback (most recent call last):
+#  File "<stdin>", line 1, in <module>
+#  IndexError: pop from an empty deque
+</code></pre>
+
+    <h2 id="queue-lifoqueue-locking-semantics-for-parallel-computing">
+      Queue.LifoQueue: Locking Semantics for Parallel Computing
+    </h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        <code>LifoQueue</code> is part of the <code>queue</code> module and is
+        thread-safe.
+      </li>
+      <li>Provides methods that ensure safe concurrent access to the stack.</li>
+      <li>
+        Ideal for multi-threaded applications where thread safety is a concern.
+      </li>
+    </ul>
+    <pre><code class="lang-py">from queue import LifoQueue
+<span class="hljs-meta">s = LifoQueue()
+<span class="hljs-meta">s.put(<span class="hljs-string">"eat"</span>)
+s.put(<span class="hljs-string">"sleep"</span>)
+s.put(<span class="hljs-string">"code"</span>)
+
+s
+# &lt;queue.LifoQueue object at <span class="hljs-number">0x108298dd8</span>&gt;
+
+s.get()
+# <span class="hljs-string">'code'</span>
+s.get()
+# <span class="hljs-string">'sleep'</span>
+s.get()
+# <span class="hljs-string">'eat'</span>
+
+s.get_nowait()
+queue.Empty
+
+s.get()  <span class="hljs-comment"># Blocks/waits forever...</span>
+</code></pre>
+    <h1 id="queues-fifos-">Queues (FIFOs)</h1>
+    <p>
+      A queue is a collection of objects that supports fast FIFO semantics for
+      inserts and deletes. The insert and delete operations are sometimes called
+      enqueue and dequeue. Unlike lists or arrays, queues typically don’t allow
+      for random access to the objects they contain.Here is an overview of queue
+      implementations in Python, focusing on lists,
+      <code>collections.deque</code>, <code>queue.Queue</code>, and
+      <code>multiprocessing.Queue</code>, along with their characteristics.
+    </p>
+    <h2 id="list-terribly-sloooow-queues">List: Terribly Sloooow Queues</h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        Lists can be used as queues using <code>append()</code> and
+        <code>pop(0)</code>, but this results in O(n) time complexity for pop
+        operations.
+      </li>
+      <li>Not recommended for large datasets due to performance issues.</li>
+    </ul>
+    <pre><code class="lang-py">q = []
+q.append(<span class="hljs-string">"eat"</span>)
+q.append(<span class="hljs-string">"sleep"</span>)
+q.append(<span class="hljs-string">"code"</span>)
+
+q
+# [<span class="hljs-string">'eat'</span>, <span class="hljs-string">'sleep'</span>, <span class="hljs-string">'code'</span>]
+
+<span class="hljs-comment"># Careful: This is slow!</span>
+q.pop(<span class="hljs-number">0</span>)
+# <span class="hljs-string">'eat'</span>
+</code></pre>
+    <h2 id="collections-deque-fast-and-robust-queues">
+      Collections.deque: Fast and Robust Queues
+    </h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        <code>deque</code> (double-ended queue) is part of the
+        <code>collections</code> module.
+      </li>
+      <li>
+        Provides O(1) time complexity for both append and pop operations, making
+        it suitable for queue implementation.
+      </li>
+      <li>Supports both stack and queue functionalities.</li>
+    </ul>
+    <pre><code class="lang-py">from collections import deque
+q = deque()
+q.append(<span class="hljs-string">"eat"</span>)
+q.append(<span class="hljs-string">"sleep"</span>)
+q.append(<span class="hljs-string">"code"</span>)
+
+q
+# deque([<span class="hljs-string">'eat'</span>, <span class="hljs-string">'sleep'</span>, <span class="hljs-string">'code'</span>])
+
+q.popleft()
+# <span class="hljs-string">'eat'</span>
+q.popleft()
+# <span class="hljs-string">'sleep'</span>
+q.popleft()
+# <span class="hljs-string">'code'</span>
+
+q.popleft()
+
+# Output:
+
+Traceback (most recent call last):
+#  File <span class="hljs-string">"&lt;stdin&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;<span class="hljs-class"><span class="hljs-keyword">module</span>&gt;</span>
+#  <span class="hljs-symbol">IndexError:</span> pop from an empty deque
+</code></pre>
+    <h2 id="queue-queue-locking-semantics-for-parallel-computing">
+      Queue.Queue: Locking Semantics for Parallel Computing
+    </h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        <code>Queue</code> is part of the <code>queue</code> module and provides
+        thread-safe operations.
+      </li>
+      <li>
+        Ensures that only one thread can access the queue at a time, making it
+        ideal for multi-threaded applications.
+      </li>
+      <li>Offers methods for blocking and non-blocking operations.</li>
+    </ul>
+    <pre><code class="lang-py">from queue import Queue
+q = Queue()
+q.put(<span class="hljs-string">"eat"</span>)
+q.put(<span class="hljs-string">"sleep"</span>)
+q.put(<span class="hljs-string">"code"</span>)
+
+q
+# &lt;queue.Queue object at <span class="hljs-number">0x1070f5b38</span>&gt;
+
+q.get()
+# <span class="hljs-string">'eat'</span>
+q.get()
+# <span class="hljs-string">'sleep'</span>
+q.get()
+# <span class="hljs-string">'code'</span>
+
+q.get_nowait()
+queue.Empty
+
+q.get()  <span class="hljs-comment"># Blocks/waits forever...</span>
+</code></pre>
+    <h2 id="multiprocessing-queue-shared-job-queues">
+      Multiprocessing.Queue: Shared Job Queues
+    </h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        <code>multiprocessing.Queue</code> is designed for sharing data between
+        processes.
+      </li>
+      <li>Supports multiple producers and consumers in a safe manner.</li>
+      <li>
+        Suitable for inter-process communication in parallel computing
+        scenarios.
+      </li>
+    </ul>
+    <pre><code class="lang-py">from multiprocessing import Queue
+q = Queue()
+q.put(<span class="hljs-string">"eat"</span>)
+q.put(<span class="hljs-string">"sleep"</span>)
+q.put(<span class="hljs-string">"code"</span>)
+
+q
+# &lt;multiprocessing.queues.Queue object at <span class="hljs-number">0x1081c12b0</span>&gt;
+
+q.get()
+# <span class="hljs-string">'eat'</span>
+q.get()
+# <span class="hljs-string">'sleep'</span>
+q.get()
+# <span class="hljs-string">'code'</span>
+
+q.get()  <span class="hljs-comment"># Blocks/waits forever...</span>
+</code></pre>
+    <h1 id="priority-queues">Priority Queues</h1>
+    <p>
+      A priority queue is a container data structure that manages a set of
+      records with totally-ordered keys to provide quick access to the record
+      with the smallest or largest key in the set.pPiority queue as a modified
+      queue. Instead of retrieving the next element by insertion time, it
+      retrieves the highest-priority element. The priority of individual
+      elements is decided by the order applied to their keys. Here is an
+      overview of priority queue implementations in Python, focusing on lists,
+      <code>heapq</code>, and <code>queue.PriorityQueue</code>, along with a
+      summary of priority queues in Python.
+    </p>
+    <h2 id="list-manually-sorted-queues">List: Manually Sorted Queues</h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        Lists can be used to implement priority queues by maintaining a sorted
+        order.
+      </li>
+      <li>Insertion can be O(n) due to the need to keep the list sorted.</li>
+      <li>Not efficient for large datasets or frequent priority updates.</li>
+    </ul>
+    <pre><code class="lang-py">q = []
+q.append((<span class="hljs-number">2</span>, <span class="hljs-string">"code"</span>))
+q.append((<span class="hljs-number">1</span>, <span class="hljs-string">"eat"</span>))
+q.append((<span class="hljs-number">3</span>, <span class="hljs-string">"sleep"</span>))
+<span class="hljs-comment"># Remember to re-sort every time a new element is inserted,</span>
+<span class="hljs-comment"># or use bisect.insort()</span>
+q.sort(reverse=True)
+
+while <span class="hljs-symbol">q:</span>
+  next_item = q.pop()
+  print(next_item)
+
+# Output:
+
+  (<span class="hljs-number">1</span>, <span class="hljs-string">'eat'</span>)
+  (<span class="hljs-number">2</span>, <span class="hljs-string">'code'</span>)
+  (<span class="hljs-number">3</span>, <span class="hljs-string">'sleep'</span>)
+</code></pre>
+    <h2 id="heapq-list-based-binary-heaps">Heapq: List-Based Binary Heaps</h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        <code>heapq</code> is a module that provides an efficient implementation
+        of the min-heap algorithm.
+      </li>
+      <li>Supports O(log n) time complexity for insertions and deletions.</li>
+      <li>
+        Can be used to create priority queues with minimal effort and maximum
+        efficiency.
+      </li>
+    </ul>
+    <pre><code class="lang-py">q = []
+q.append((<span class="hljs-number">2</span>, <span class="hljs-string">"code"</span>))
+q.append((<span class="hljs-number">1</span>, <span class="hljs-string">"eat"</span>))
+q.append((<span class="hljs-number">3</span>, <span class="hljs-string">"sleep"</span>))
+<span class="hljs-comment"># Remember to re-sort every time a new element is inserted,</span>
+<span class="hljs-comment"># or use bisect.insort()</span>
+q.sort(reverse=True)
+
+while <span class="hljs-symbol">q:</span>
+  next_item = q.pop()
+  print(next_item)
+
+# Output:
+
+(<span class="hljs-number">1</span>, <span class="hljs-string">'eat'</span>)
+(<span class="hljs-number">2</span>, <span class="hljs-string">'code'</span>)
+(<span class="hljs-number">3</span>, <span class="hljs-string">'sleep'</span>)
+</code></pre>
+    <h2 id="queue-priorityqueue-beautiful-priority-queues">
+      Queue.PriorityQueue: Beautiful Priority Queues
+    </h2>
+    <p><strong>Characteristics:</strong></p>
+    <ul>
+      <li>
+        <code>PriorityQueue</code> is part of the <code>queue</code> module and
+        provides a thread-safe implementation of priority queues.
+      </li>
+      <li>
+        Offers blocking and non-blocking operations, suitable for multi-threaded
+        applications.
+      </li>
+      <li>
+        Internally uses a heap structure for efficient element retrieval based
+        on priority.
+      </li>
+    </ul>
+    <pre><code class="lang-py"><span class="hljs-keyword">from</span> queue <span class="hljs-keyword">import</span> PriorityQueue
+q = PriorityQueue()
+q.put((<span class="hljs-number">2</span>, <span class="hljs-string">"code"</span>))
+q.put((<span class="hljs-number">1</span>, <span class="hljs-string">"eat"</span>))
+q.put((<span class="hljs-number">3</span>, <span class="hljs-string">"sleep"</span>))
+
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> q.empty():
+    next_item = q.get()
+    print(next_item)
+
+<span>Output:</span>
+  (<span class="hljs-number">1</span>, <span class="hljs-string">'eat'</span>)
+  (<span class="hljs-number">2</span>, <span class="hljs-string">'code'</span>)
+  (<span class="hljs-number">3</span>, <span class="hljs-string">'sleep'</span>)
+</code></pre>
+    <h1 id="conclusion-python-data-structures">
+      Conclusion: Python Data Structures
+    </h1>
+    <p>
+      In summary, Python offers a rich set of data structures, each designed to
+      address specific needs and use cases. Understanding these structures is
+      essential for writing efficient and effective code. Here&#39;s a brief
+      recap of the main categories discussed:
+    </p>
+    <ul>
+      <li>
+        <strong>Dictionaries, Maps, and Hash Tables</strong>: These structures
+        provide versatile key-value storage options, with features like order
+        preservation and default values.
+      </li>
+      <li>
+        <strong>Array Data Structures</strong>: From mutable lists to immutable
+        tuples and specialized arrays, Python supports various ways to handle
+        collections of elements efficiently.
+      </li>
+      <li>
+        <strong>Records, Structs, and Data Transfer Objects</strong>: Different
+        methods for organizing related data enable better management of complex
+        information.
+      </li>
+      <li>
+        <strong>Sets and Multisets</strong>: Useful for handling unique elements
+        and counting occurrences, sets are foundational for many algorithms.
+      </li>
+      <li>
+        <strong>Stacks (LIFOs)</strong>: Essential for last-in-first-out
+        operations, stacks are implemented in multiple ways to suit different
+        performance needs.
+      </li>
+      <li>
+        <strong>Queues (FIFOs)</strong>: Crucial for first-in-first-out
+        processing, queues support various concurrency and performance
+        requirements.
+      </li>
+      <li>
+        <strong>Priority Queues</strong>: These structures enable efficient
+        retrieval of elements based on priority, with implementations suitable
+        for various applications.
+      </li>
+    </ul>
+    <h1>Interactive Python Console</h1>
+    <div class="console" id="python-console">
+      <textarea id="input" placeholder="Enter Python code..."></textarea>
+      <button id="run">Run</button>
+      <div id="outputs"></div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"
+    ></script>
+    <a href="#python-console" class="fixed-link">Python Console</a>
+    <a href="#data-structures-with-python" class="fixed-link2">🔝</a>
+    <script type="text/python">
+      from browser import document, window
+
+      # Override the print function to append output to the webpage
+      def print(*args, **kwargs):
+          output_cell = document["outputs"].select(".output-cell:last-child")[0]
+          output_cell.textContent += " ".join(map(str, args)) + "\n"
+
+      def run_code(event):
+          code = document["input"].value
+          outputs = document["outputs"]
+
+          # Create a new output cell
+          output_cell = document.createElement('div')
+          output_cell.className = 'output-cell'
+          output_cell.textContent = f">>> {code}\n"
+          outputs.appendChild(output_cell)
+
+          try:
+              exec(code)
+          except Exception as e:
+              output_cell.textContent += f"Error: {str(e)}\n"
+          finally:
+              document["input"].value = ""
+
+      document["run"].bind("click", run_code)
+    </script>
+  </body>
+</html>
